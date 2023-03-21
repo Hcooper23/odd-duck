@@ -1,0 +1,39 @@
+body{
+    background-color: lightskyblue
+}
+body section ul{
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: 2px solid;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+  h1 {
+    text-align: center;
+  }
+  
+  #vote-tracker {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px;
+    float: right;
+  }
+  
+  img {
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+  }
+
+  .information{
+    text-align: center;
+    display: inline;
+  }
+
+  .button {
+    background-color: cyan;
+  }
