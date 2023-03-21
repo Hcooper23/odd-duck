@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R&D Research</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <header>
     <nav>
@@ -24,7 +25,7 @@
         <ul id="results">
             <Li></Li>
          </ul>
-         <button type="button">View Results</button>
+         <button id="button" type="button">View Results</button>
     </section>
     <section id="vote-tracker">
         <img alt="">
@@ -38,6 +39,10 @@
             results will display.
         </p>
     </section>
+    <section id="chartResults">
+        <canvas id="chart" height="300" width="300"></canvas>
+        <button id="update-chart">Update Chart</button>
+      </section>
 </body>
 
 <footer>

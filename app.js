@@ -3,6 +3,7 @@
 const products = [];
 let roundsOfVoting = 25;
 let results = document.getElementById('results');
+let chart = null;
 
 function photos(name, source) {
     this.name = name;
@@ -33,6 +34,8 @@ products.push(new photos('wine-glass', 'Images/wine-glass.jpg'));
 
 let imgElp = document.querySelectorAll('img');
 let voteTrackerEl = document.getElementById('vote-tracker');
+let buttonEl = document.getElementById('button');
+const canvasEl = document.getElementById('chart');
 
 
 imgElp[0].src = products[0].source;
@@ -91,44 +94,115 @@ function handleProductClick(event) {
         roundsOfVoting--;
     } else {
         voteTrackerEl.removeEventListener('click', handleProductClick);
-        buttonEl.addEventListener('results', rednerData);
+        buttonEl.addEventListener('click', renderData);
+        drawChart();
+        console.log("chart drwan")
+        
     }
 }
 
 voteTrackerEl.addEventListener('click', handleProductClick);
 
-function rednerData(event) {
+function renderData(event) {
     let buttonClicked = event.target.id;
-    objectProducts.forEach(products => {
+    products.forEach(products => {
         let listItemEl = document.createElement('li');
         let parentContainerEl = document.getElementById('results');
         parentContainerEl.appendChild(listItemEl);
         listItemEl.textContent = `${products.name} had ${products.timesClicked} votes, and was shown ${products.timesShown} times.`;
         products.timesClicked;
         products.timesShown;
-});
+    });
 }
 
-let buttonEl = document.getElementById('button');
+ 
+let chartObj = document.getElementById('chart').getContext("2d");
+
+function drawChart() {
+    let labels = []
+    let timesShownValues = [];
+    let timesClickedValues = []
+    products.forEach(products => {
+        labels.push(products.name);
+        timesShownValues.push(products.timesShown);
+        timesClickedValues.push(products.timesClicked);
+    });
+   
+
+    chart = new Chart(chartObj, {
+        type: 'bar',
+        data: {
+            labels: labels, 
+            datasets: [{
+                label: 'Times Shown',
+                data: timesShownValues, 
+                borderWidth: 1
+            }, {
+                label: 'Times Clicked',
+                data: timesClickedValues, 
+                borderWidth: 1
+            }], 
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
 
 
-// let eventId = voteTrackerEl.addEventListener('click', function (event) {
-//     console.log(event.target); // event.target always represents the exact element where an event occurred.
-
-//     // identify which image was clicked on??
-//     let productThatWasClicked = event.target.id;
-//     products.forEach(photos => {
-//         if (photos.name === productThatWasClicked) {
-//             photos.timesClicked += 1; // mutation of an object
-//         }
-//     });
-//     console.log('UPDATED STATE', state);
-
-//     // re-render new goat images -> random goat image from state
-//     if (roundsOfVoting) {
-//         renderGoats();
-//         roundsOfVoting--;
-//     } else {
-//         voteTrackerEl.removeEventListener('click', eventId);
+// function renderChart() {
+//     let productNames = [];
+//     let productViews = [];
+//     let productClicks = [];
+//     for (let i = 0; i < allProducts.length; i++) {
+//       productNames.push(allProducts[i].name);
+//       productViews.push(allProducts[i].views);
+//       productClicks.push(allProducts[i].clicks);
 //     }
+  
+//     var chartObject = {
+//       type: 'bar',
+//       data: {
+//         labels: productNames,
+//         datasets: [{
+//           label: 'Views',
+//           data: productViews,
+//           backgroundColor: 'rgba(255, 255, 255, 3)',
+//           borderColor: 'rgba(255, 255, 255, 10)',
+//           borderWidth: 1
+//         },
+//         {
+//           label: 'Clicks',
+//           data: productClicks,
+//           backgroundColor: 'rgba(34, 166, 179, 3)',
+//           borderColor: 'rgba(34, 166, 179, 10)',
+//           borderWidth: 1
+//         }]
+//       },
+//       options: {
+//         scales: {
+//           yAxes: [{
+//             ticks: {
+//               beginAtZero: true
+//             }
+//           }]
+//         }
+//       }
+//     };
+  
+//     let ctx = document.getElementById('myChart').getContext('2d');
+//     let myChart = new Chart(ctx, chartObject); //eslint-disable-line
+//   }
+// buttonEl.addEventListener('click', function () {
+//     updateChart([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 // });
+
+// function updateChart(data) {
+//     console.log("CHART OBJECT TO UPDATE", chartObj.data);
+//     // chartObj.data.datasets[0].data = data;
+//     chartObj.update();
+// }
