@@ -11,25 +11,25 @@ function photos(name, source) {
     this.source = source;
 }
 
-products.push(new photos('banana', './Images/banana.jpg'));
-products.push(new photos('bathroom', '/Images/bathroom.jpg'));
-products.push(new photos('boots', '/Images/boots.jpg'));
-products.push(new photos('breakfast', '/Images/breakfast.jpg'));
-products.push(new photos('bubblegum', '/Images/bubblegum.jpg'));
-products.push(new photos('chair', '/Images/chair.jpg'));
-products.push(new photos('cthulhu', '/Images/cthulhu.jpg'));
-products.push(new photos('dog-duck', '/Images/dog-duck.jpg'));
-products.push(new photos('dragon', '/Images/dragon.jpg'));
-products.push(new photos('pen', '/Images/pen.jpg'));
-products.push(new photos('pet-sweep', '/Images/pet-sweep.jpg'));
-products.push(new photos('scissors', '/Images/scissors.jpg'));
-products.push(new photos('shark', '/Images/shark.jpg'));
-products.push(new photos('bag', '/Images/bag.jpg'));
-products.push(new photos('sweep', '/Images/sweep.png'));
-products.push(new photos('tauntaun', '/Images/tauntaun.jpg'));
-products.push(new photos('unicorn', '/Images/unicorn.jpg'));
-products.push(new photos('water-can', '/Images/water-can.jpg'));
-products.push(new photos('wine-glass', '/Images/wine-glass.jpg'));
+products.push(new photos('banana', 'Images/banana.jpg'));
+products.push(new photos('bathroom', 'Images/bathroom.jpg'));
+products.push(new photos('boots', 'Images/boots.jpg'));
+products.push(new photos('breakfast', 'Images/breakfast.jpg'));
+products.push(new photos('bubblegum', 'Images/bubblegum.jpg'));
+products.push(new photos('chair', 'Images/chair.jpg'));
+products.push(new photos('cthulhu', 'Images/cthulhu.jpg'));
+products.push(new photos('dog-duck', 'Images/dog-duck.jpg'));
+products.push(new photos('dragon', 'Images/dragon.jpg'));
+products.push(new photos('pen', 'Images/pen.jpg'));
+products.push(new photos('pet-sweep', 'Images/pet-sweep.jpg'));
+products.push(new photos('scissors', 'Images/scissors.jpg'));
+products.push(new photos('shark', 'Images/shark.jpg'));
+products.push(new photos('bag', 'Images/bag.jpg'));
+products.push(new photos('sweep', 'Images/sweep.png'));
+products.push(new photos('tauntaun', 'Images/tauntaun.jpg'));
+products.push(new photos('unicorn', 'Images/unicorn.jpg'));
+products.push(new photos('water-can', 'Images/water-can.jpg'));
+products.push(new photos('wine-glass', 'Images/wine-glass.jpg'));
 
 let imgElp = document.querySelectorAll('img');
 let voteTrackerEl = document.getElementById('vote-tracker');
