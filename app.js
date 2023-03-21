@@ -24,7 +24,7 @@ products.push(new photos('pen', '/Images/pen.jpg'));
 products.push(new photos('pet-sweep', '/Images/pet-sweep.jpg'));
 products.push(new photos('scissors', '/Images/scissors.jpg'));
 products.push(new photos('shark', '/Images/shark.jpg'));
-products.push(new photos('bag', 'Images/bag.jpg'));
+products.push(new photos('bag', '/Images/bag.jpg'));
 products.push(new photos('sweep', '/Images/sweep.png'));
 products.push(new photos('tauntaun', '/Images/tauntaun.jpg'));
 products.push(new photos('unicorn', '/Images/unicorn.jpg'));
