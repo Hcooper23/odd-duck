@@ -67,7 +67,9 @@ Below are your lab requirements in this format. Try and think up what the featur
 5 .Using Lighthouse in the Chrome DevTools, analyze the accessibility of your application.
 
     - In this module, try for a score higher than 80. Make necessary adjustments based on the report to achieve that score.
+
     - Add a screenshot of your score to your README.md file.
+    ![Lighthouse Report](./Screenshot%202023-03-21%20at%201.26.49%20PM.png)
 
 # Stretch Goals
 

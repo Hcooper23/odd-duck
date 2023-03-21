@@ -91,10 +91,26 @@ function handleProductClick(event) {
         roundsOfVoting--;
     } else {
         voteTrackerEl.removeEventListener('click', handleProductClick);
+        buttonEl.addEventListener('results', rednerData);
     }
 }
 
 voteTrackerEl.addEventListener('click', handleProductClick);
+
+function rednerData(event) {
+    let buttonClicked = event.target.id;
+    objectProducts.forEach(products => {
+        let listItemEl = document.createElement('li');
+        let parentContainerEl = document.getElementById('results');
+        parentContainerEl.appendChild(listItemEl);
+        listItemEl.textContent = `${products.name} had ${products.timesClicked} votes, and was shown ${products.timesShown} times.`;
+        products.timesClicked;
+        products.timesShown;
+});
+}
+
+let buttonEl = document.getElementById('button');
+
 
 // let eventId = voteTrackerEl.addEventListener('click', function (event) {
 //     console.log(event.target); // event.target always represents the exact element where an event occurred.
