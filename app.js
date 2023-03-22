@@ -1,6 +1,6 @@
 'use strict';
 
-const products = [];
+let products = [];
 let previousIndexes = [];
 let roundsOfVoting = 25;
 let results = document.getElementById('results');
@@ -13,6 +13,11 @@ function photos(name, source) {
     this.source = source;
 }
 
+function createProducts(){
+if (localStorage.getItem('products')) {
+    products = JSON.parse(localStorage.getItem('products'));
+}
+else {
 products.push(new photos('Banana', 'Images/banana.jpg'));
 products.push(new photos('Bathroom', 'Images/bathroom.jpg'));
 products.push(new photos('Boots', 'Images/boots.jpg'));
@@ -32,11 +37,15 @@ products.push(new photos('Tauntaun', 'Images/tauntaun.jpg'));
 products.push(new photos('Unicorn', 'Images/unicorn.jpg'));
 products.push(new photos('Water-Can', 'Images/water-can.jpg'));
 products.push(new photos('Wine-Glass', 'Images/wine-glass.jpg'));
+}
+}
+createProducts();
 
 let imgElp = document.querySelectorAll('img');
 let voteTrackerEl = document.getElementById('vote-tracker');
 let buttonEl = document.getElementById('button');
 const canvasEl = document.getElementById('chart');
+let buttonResetEl = document.getElementById('reset-chart');
 
 
 imgElp[0].src = products[0].source;
@@ -51,7 +60,7 @@ function generateRandomImages() {
     const index = new Set();
     while (index.size < 3) {
         const randomIndex = Math.floor(Math.random() * products.length)
-        if (!index.has(randomIndex)&& !previousIndexes.includes(randomIndex)) {
+        if (!index.has(randomIndex) && !previousIndexes.includes(randomIndex)) {
             index.add(randomIndex);
         }
     };
@@ -93,8 +102,8 @@ function handleProductClick(event) {
         voteTrackerEl.removeEventListener('click', handleProductClick);
         buttonEl.addEventListener('click', renderData);
         drawChart();
-        console.log("chart drwan")
-
+        console.log("chart draw")
+        writeData();
     }
 }
 
@@ -145,27 +154,65 @@ function drawChart() {
         options: {
             scales: {
                 y: {
-                    ticks:{
-                            font:{
-                                size: 30
-                            },
+                    ticks: {
+                        font: {
+                            size: 30
+                        },
                     },
-                    beginAtZero: true
-                    
+                    // beginAtZero: true
+
                 }
             }
         },
         x: {
             ticks: {
-                font:{
+                font: {
                     size: 30
                 },
             },
         }
-        
+
     });
     chart.canvas.parentNode.style.height = '1200px';
     chart.canvas.parentNode.style.width = '1200px';
 }
 
+// let value = localStorage.getItem('photos');
+// let Products = localStorage.getItem('photos');
+
+
+function writeData() {
+    localStorage.setItem('photos', JSON.stringify(products));
+}
+
+function readData() {
+    return JSON.parse(localStorage.getItem ('photos')) || [];
+}
+
+products = readData();
+console.log(products);
+
+function updateChart (event){
+    event.preventDefault();
+    console.log(event.target.name);
+    let name = event.target.name.value;
+    let source = event.target.source.value;
+    products.forEach(products => {
+        if (products.name === name) {
+            products.source = source;
+        }
+    });
+    readData();
+    drawChart();
+}
+
+
+buttonResetEl.addEventListener('click', resetChart);
+function resetChart(event){
+    roundsOfVoting = 25;
+    chart.destroy();
+    createProducts();
+    renderImages();
+    voteTrackerEl.addEventListener('click', handleProductClick);    
+}
 

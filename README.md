@@ -20,15 +20,16 @@ You are also responsible for the look and feel of the app, so don't forget a cus
 
 Below are your lab requirements in a user story format. Try and think up what the feature tasks would be for each story, once you are done, or you get stuck, review the provided feature tasks to see what the actual tasks are for each story.
 
-1. As a marketeer, I want to prevent users from seeing the same image in two subsequent iterations, so that they are not biased.
-    - Update your algorithm to randomly generate three unique product images from the images directory.
-    - Update your algorithm so that new products are generated, confirm that these products are not duplicates from the immediate previous set.
+1. As a user, I would like my data to persistently track totals between page refreshes, so that I can keep track of the aggregate number of votes.
 
-2. As a marketing manager, I would like a visual representation of how many times a product was clicked so that I can visually analyze the results.
+    - Implement local storage into your current application
+    - Make sure the data persists across both browser refreshes and resets
+Hints:
 
-    - Using ChartJS (imported from CDN), display the vote totals and the number of times a product was viewed in a bar chart format. (hint: don’t forget about the canvas tags)
-    - Place the bar chart in the section located beneath your three product images
-    - The bar charts should only appear after all voting data has been collected.
+Store the products array into local storage as a formatted JSON string
+
+2. Retrieve the products array from local storage and then utilize the JSON.Parse() function. Remember, if your constructor utilizes prototype methods, you will have to send each item in the array back through the constructor function.
+
 
 3. Run a Lighthouse Accessbility report. Make necessary updates to your application based on the report to get your score above 80.
 
