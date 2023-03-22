@@ -1,6 +1,7 @@
 'use strict';
 
 const products = [];
+let previousIndexes = [];
 let roundsOfVoting = 25;
 let results = document.getElementById('results');
 let chart = null;
@@ -12,25 +13,25 @@ function photos(name, source) {
     this.source = source;
 }
 
-products.push(new photos('banana', 'Images/banana.jpg'));
-products.push(new photos('bathroom', 'Images/bathroom.jpg'));
-products.push(new photos('boots', 'Images/boots.jpg'));
-products.push(new photos('breakfast', 'Images/breakfast.jpg'));
-products.push(new photos('bubblegum', 'Images/bubblegum.jpg'));
-products.push(new photos('chair', 'Images/chair.jpg'));
-products.push(new photos('cthulhu', 'Images/cthulhu.jpg'));
-products.push(new photos('dog-duck', 'Images/dog-duck.jpg'));
-products.push(new photos('dragon', 'Images/dragon.jpg'));
-products.push(new photos('pen', 'Images/pen.jpg'));
-products.push(new photos('pet-sweep', 'Images/pet-sweep.jpg'));
-products.push(new photos('scissors', 'Images/scissors.jpg'));
-products.push(new photos('shark', 'Images/shark.jpg'));
-products.push(new photos('bag', 'Images/bag.jpg'));
-products.push(new photos('sweep', 'Images/sweep.png'));
-products.push(new photos('tauntaun', 'Images/tauntaun.jpg'));
-products.push(new photos('unicorn', 'Images/unicorn.jpg'));
-products.push(new photos('water-can', 'Images/water-can.jpg'));
-products.push(new photos('wine-glass', 'Images/wine-glass.jpg'));
+products.push(new photos('Banana', 'Images/banana.jpg'));
+products.push(new photos('Bathroom', 'Images/bathroom.jpg'));
+products.push(new photos('Boots', 'Images/boots.jpg'));
+products.push(new photos('Breakfast', 'Images/breakfast.jpg'));
+products.push(new photos('Bubblegum', 'Images/bubblegum.jpg'));
+products.push(new photos('Chair', 'Images/chair.jpg'));
+products.push(new photos('Cthulhu', 'Images/cthulhu.jpg'));
+products.push(new photos('Dog-Duck', 'Images/dog-duck.jpg'));
+products.push(new photos('Dragon', 'Images/dragon.jpg'));
+products.push(new photos('Pen', 'Images/pen.jpg'));
+products.push(new photos('Pet-Sweep', 'Images/pet-sweep.jpg'));
+products.push(new photos('Scissors', 'Images/scissors.jpg'));
+products.push(new photos('Shark', 'Images/shark.jpg'));
+products.push(new photos('Bag', 'Images/bag.jpg'));
+products.push(new photos('Sweep', 'Images/sweep.png'));
+products.push(new photos('Tauntaun', 'Images/tauntaun.jpg'));
+products.push(new photos('Unicorn', 'Images/unicorn.jpg'));
+products.push(new photos('Water-Can', 'Images/water-can.jpg'));
+products.push(new photos('Wine-Glass', 'Images/wine-glass.jpg'));
 
 let imgElp = document.querySelectorAll('img');
 let voteTrackerEl = document.getElementById('vote-tracker');
@@ -50,7 +51,7 @@ function generateRandomImages() {
     const index = new Set();
     while (index.size < 3) {
         const randomIndex = Math.floor(Math.random() * products.length)
-        if (!index.has(randomIndex)) {
+        if (!index.has(randomIndex)&& !previousIndexes.includes(randomIndex)) {
             index.add(randomIndex);
         }
     };
@@ -76,10 +77,6 @@ function renderImages() {
 }
 renderImages();
 
-// function handleClick(event) {
-//     let productThatWasClicked = event.target.value;
-//     console.log(productThatWasClicked);
-//     };
 
 function handleProductClick(event) {
     let productThatWasClicked = event.target.id;
@@ -97,7 +94,7 @@ function handleProductClick(event) {
         buttonEl.addEventListener('click', renderData);
         drawChart();
         console.log("chart drwan")
-        
+
     }
 }
 
@@ -115,7 +112,7 @@ function renderData(event) {
     });
 }
 
- 
+
 let chartObj = document.getElementById('chart').getContext("2d");
 
 function drawChart() {
@@ -127,82 +124,48 @@ function drawChart() {
         timesShownValues.push(products.timesShown);
         timesClickedValues.push(products.timesClicked);
     });
-   
+
 
     chart = new Chart(chartObj, {
         type: 'bar',
         data: {
-            labels: labels, 
+            labels: labels,
             datasets: [{
                 label: 'Times Shown',
-                data: timesShownValues, 
-                borderWidth: 1
+                data: timesShownValues,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
             }, {
                 label: 'Times Clicked',
-                data: timesClickedValues, 
-                borderWidth: 1
-            }], 
+                data: timesClickedValues,
+                backgroundColor: 'rgba(255, 99, 132, 3)',
+                borderColor: 'rgba(255, 99, 132, 10)',
+            }],
         },
         options: {
             scales: {
                 y: {
+                    ticks:{
+                            font:{
+                                size: 30
+                            },
+                    },
                     beginAtZero: true
+                    
                 }
             }
+        },
+        x: {
+            ticks: {
+                font:{
+                    size: 30
+                },
+            },
         }
+        
     });
+    chart.canvas.parentNode.style.height = '1200px';
+    chart.canvas.parentNode.style.width = '1200px';
 }
 
 
-// function renderChart() {
-//     let productNames = [];
-//     let productViews = [];
-//     let productClicks = [];
-//     for (let i = 0; i < allProducts.length; i++) {
-//       productNames.push(allProducts[i].name);
-//       productViews.push(allProducts[i].views);
-//       productClicks.push(allProducts[i].clicks);
-//     }
-  
-//     var chartObject = {
-//       type: 'bar',
-//       data: {
-//         labels: productNames,
-//         datasets: [{
-//           label: 'Views',
-//           data: productViews,
-//           backgroundColor: 'rgba(255, 255, 255, 3)',
-//           borderColor: 'rgba(255, 255, 255, 10)',
-//           borderWidth: 1
-//         },
-//         {
-//           label: 'Clicks',
-//           data: productClicks,
-//           backgroundColor: 'rgba(34, 166, 179, 3)',
-//           borderColor: 'rgba(34, 166, 179, 10)',
-//           borderWidth: 1
-//         }]
-//       },
-//       options: {
-//         scales: {
-//           yAxes: [{
-//             ticks: {
-//               beginAtZero: true
-//             }
-//           }]
-//         }
-//       }
-//     };
-  
-//     let ctx = document.getElementById('myChart').getContext('2d');
-//     let myChart = new Chart(ctx, chartObject); //eslint-disable-line
-//   }
-// buttonEl.addEventListener('click', function () {
-//     updateChart([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-// });
-
-// function updateChart(data) {
-//     console.log("CHART OBJECT TO UPDATE", chartObj.data);
-//     // chartObj.data.datasets[0].data = data;
-//     chartObj.update();
-// }
