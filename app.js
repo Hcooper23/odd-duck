@@ -63,15 +63,14 @@ let buttonResetEl = document.getElementById('reset-chart');
 function generateRandomImages() {
     index = [];
     console.log (index)
-      // const index = new Set();
-//     while (index.length < 3) {
-//         console.log (index.length)  
-//         const randomIndex = Math.floor(Math.random() * products.length)
-//         if (!index.includes(randomIndex) && !previousIndexes.includes(randomIndex)) {
-//             index.push(randomIndex);
-//         }
-//     };
-    // const uniqueIndex = Array.from(index);
+    while (index.length < 3) {
+        console.log (index.length)  
+        const randomIndex = Math.floor(Math.random() * products.length)
+        if (!index.includes(randomIndex) && !previousIndexes.includes(randomIndex)) {
+            index.push(randomIndex);
+        }
+    };
+    const uniqueIndex = Array.from(index);
     previousIndexes = index;
     return index;
 }
