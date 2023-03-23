@@ -65,8 +65,8 @@ function generateRandomImages() {
     while (indexes.length < 3) {
         const randomIndex = Math.floor(Math.random() * products.length)
         console.log(randomIndex)
-        if (!index.includes(randomIndex) && !previousIndexes.includes(randomIndex)) {
-            index.push(randomIndex);
+        if (!indexes.includes(randomIndex) && !previousIndexes.includes(randomIndex)) {
+            indexes.push(randomIndex);
         }
     };
     previousIndexes = indexes;
