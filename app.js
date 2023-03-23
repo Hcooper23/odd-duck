@@ -203,9 +203,9 @@ function updateChart(event) {
 }
 
 
-buttonResetEl.addEventListener('click', resetChart);
-function resetChart(event) {
-    roundsOfVoting = 25;
-    chart.destroy();
-    voteTrackerEl.addEventListener('click', handleProductClick);
-}
+// buttonResetEl.addEventListener('click', resetChart);
+// function resetChart(event) {
+//     roundsOfVoting = 25;
+//     chart.destroy();
+//     voteTrackerEl.addEventListener('click', handleProductClick);
+// }
