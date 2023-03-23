@@ -50,11 +50,11 @@ let buttonResetEl = document.getElementById('reset-chart');
 
 
 imgElp[0].src = products[0].source;
-imgElp[0].id = products[0].name;
-imgElp[1].src = products[1].source;
-imgElp[1].id = products[1].name;
-imgElp[2].src = products[2].source;
-imgElp[2].id = products[2].name;
+// imgElp[0].id = products[0].name;
+// imgElp[1].src = products[1].source;
+// imgElp[1].id = products[1].name;
+// imgElp[2].src = products[2].source;
+// imgElp[2].id = products[2].name;
 
 function generateRandomImages() {
     const index = new Set();
