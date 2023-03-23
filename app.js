@@ -5,7 +5,6 @@ let previousIndexes = [];
 let roundsOfVoting = 25;
 let results = document.getElementById('results');
 let chart = null;
-let index = []
 
 function Photos(name, source) {
     this.name = name;
@@ -61,18 +60,17 @@ let buttonResetEl = document.getElementById('reset-chart');
 // imgElp[2].id = products[2].name;
 
 function generateRandomImages() {
-    index = [];
+    let indexes = [];
     console.log (index)
-    while (index.length < 3) {
-        console.log (index.length)  
+    while (indexes.length < 3) {
         const randomIndex = Math.floor(Math.random() * products.length)
+        console.log(randomIndex)
         if (!index.includes(randomIndex) && !previousIndexes.includes(randomIndex)) {
             index.push(randomIndex);
         }
     };
-    const uniqueIndex = Array.from(index);
-    previousIndexes = index;
-    return index;
+    previousIndexes = indexes;
+    return indexes;
 }
 
 function renderImages() {
