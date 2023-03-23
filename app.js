@@ -5,7 +5,7 @@ let previousIndexes = [];
 let roundsOfVoting = 25;
 let results = document.getElementById('results');
 let chart = null;
-
+let index = new Set;
 
 function photos(name, source) {
     this.name = name;
@@ -57,7 +57,8 @@ imgElp[0].src = products[0].source;
 // imgElp[2].id = products[2].name;
 
 function generateRandomImages() {
-    const index = new Set();
+    index = new Set;
+    // const index = new Set();
     while (index.size < 3) {
         const randomIndex = Math.floor(Math.random() * products.length)
         if (!index.has(randomIndex) && !previousIndexes.includes(randomIndex)) {
