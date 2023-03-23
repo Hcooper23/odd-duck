@@ -39,6 +39,7 @@ function createProducts() {
         products.push(new Photos('Water-Can', './Images/water-can.jpg'));
         products.push(new Photos('Wine-Glass', './Images/wine-glass.jpg'));
     }
+    console.log(products)
 }
 createProducts();
 
