@@ -206,4 +206,3 @@ function resetChart(event) {
     chart.destroy();
     voteTrackerEl.addEventListener('click', handleProductClick);
 }
-

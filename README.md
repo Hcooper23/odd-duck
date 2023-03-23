@@ -36,7 +36,7 @@ Store the products array into local storage as a formatted JSON string
     - Add a screenshot of your score to your README.md file.
 Stretch Goals
 
-![Lighthouse Accessbility](./Screenshot%202023-03-21%20at%2010.20.29%20PM.png)
+![Lighthouse Accessbility](./Screenshot%202023-03-22%20at%209.41.17%20PM.png)
 
 Try some additional charting types based off of some of the other data you collected and display them in addition to the required bar chart
 # Resources
