@@ -78,14 +78,14 @@ function generateRandomImages() {
 
 function renderImages() {
     let indexes = generateRandomImages();
-    imageOneEl[0].src = products[indexes[0]].source;
-    imageOneEl[0].id = products[indexes[0]].name;
+    imageOneEl.src = products[indexes[0]].source;
+    imageOneEl.id = products[indexes[0]].name;
     products[indexes[0]].timesShown++;
-    imageTwoEl[1].src = products[indexes[1]].source
-    imageTwoEl[1].id = products[indexes[1]].name;
+    imageTwoEl.src = products[indexes[1]].source
+    imageTwoEl.id = products[indexes[1]].name;
     products[indexes[1]].timesShown++;
-    imageThreeEl[2].src = products[indexes[2]].source;
-    imageThreeEl[2].id = products[indexes[2]].name;
+    imageThreeEl.src = products[indexes[2]].source;
+    imageThreeEl.id = products[indexes[2]].name;
     products[indexes[2]].timesShown++;
 }
 renderImages();
