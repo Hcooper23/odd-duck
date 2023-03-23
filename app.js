@@ -78,6 +78,7 @@ function generateRandomImages() {
 
 function renderImages() {
     let indexes = generateRandomImages();
+    console.log(indexes);
     imageOneEl.src = products[indexes[0]].source;
     imageOneEl.id = products[indexes[0]].name;
     products[indexes[0]].timesShown++;
