@@ -61,7 +61,6 @@ let buttonResetEl = document.getElementById('reset-chart');
 
 function generateRandomImages() {
     let indexes = [];
-    console.log (index)
     while (indexes.length < 3) {
         const randomIndex = Math.floor(Math.random() * products.length)
         console.log(randomIndex)
@@ -75,7 +74,7 @@ function generateRandomImages() {
 
 function renderImages() {
     let indexes = generateRandomImages();
-    console.log(indexes);
+    console.log(indexes)
     imageOneEl.src = products[indexes[0]].source;
     imageOneEl.id = products[indexes[0]].name;
     products[indexes[0]].timesShown++;
