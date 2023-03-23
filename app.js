@@ -61,6 +61,7 @@ let buttonResetEl = document.getElementById('reset-chart');
 
 function generateRandomImages() {
     let indexes = [];
+    console.log(indexes);
     while (indexes.length < 3) {
         const randomIndex = Math.floor(Math.random() * products.length)
         console.log(randomIndex)
