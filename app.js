@@ -19,25 +19,25 @@ function createProducts() {
         products = JSON.parse(localStorage.getItem('products'));
     }
     else {
-        products.push(new Photos('Banana', 'Images/banana.jpg'));
-        products.push(new Photos('Bathroom', 'Images/bathroom.jpg'));
-        products.push(new Photos('Boots', 'Images/boots.jpg'));
-        products.push(new Photos('Breakfast', 'Images/breakfast.jpg'));
-        products.push(new Photos('Bubblegum', 'Images/bubblegum.jpg'));
-        products.push(new Photos('Chair', 'Images/chair.jpg'));
-        products.push(new Photos('Cthulhu', 'Images/cthulhu.jpg'));
-        products.push(new Photos('Dog-Duck', 'Images/dog-duck.jpg'));
-        products.push(new Photos('Dragon', 'Images/dragon.jpg'));
-        products.push(new Photos('Pen', 'Images/pen.jpg'));
-        products.push(new Photos('Pet-Sweep', 'Images/pet-sweep.jpg'));
-        products.push(new Photos('Scissors', 'Images/scissors.jpg'));
-        products.push(new Photos('Shark', 'Images/shark.jpg'));
-        products.push(new Photos('Bag', 'Images/bag.jpg'));
-        products.push(new Photos('Sweep', 'Images/sweep.png'));
-        products.push(new Photos('Tauntaun', 'Images/tauntaun.jpg'));
-        products.push(new Photos('Unicorn', 'Images/unicorn.jpg'));
-        products.push(new Photos('Water-Can', 'Images/water-can.jpg'));
-        products.push(new Photos('Wine-Glass', 'Images/wine-glass.jpg'));
+        products.push(new Photos('Banana', './Images/banana.jpg'));
+        products.push(new Photos('Bathroom', './Images/bathroom.jpg'));
+        products.push(new Photos('Boots', './Images/boots.jpg'));
+        products.push(new Photos('Breakfast', './Images/breakfast.jpg'));
+        products.push(new Photos('Bubblegum', './Images/bubblegum.jpg'));
+        products.push(new Photos('Chair', './Images/chair.jpg'));
+        products.push(new Photos('Cthulhu', './Images/cthulhu.jpg'));
+        products.push(new Photos('Dog-Duck', './Images/dog-duck.jpg'));
+        products.push(new Photos('Dragon', './Images/dragon.jpg'));
+        products.push(new Photos('Pen', './Images/pen.jpg'));
+        products.push(new Photos('Pet-Sweep', './Images/pet-sweep.jpg'));
+        products.push(new Photos('Scissors', './Images/scissors.jpg'));
+        products.push(new Photos('Shark', './Images/shark.jpg'));
+        products.push(new Photos('Bag', './Images/bag.jpg'));
+        products.push(new Photos('Sweep', './Images/sweep.png'));
+        products.push(new Photos('Tauntaun', './Images/tauntaun.jpg'));
+        products.push(new Photos('Unicorn', './Images/unicorn.jpg'));
+        products.push(new Photos('Water-Can', './Images/water-can.jpg'));
+        products.push(new Photos('Wine-Glass', './Images/wine-glass.jpg'));
     }
 }
 createProducts();
