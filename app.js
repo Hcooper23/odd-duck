@@ -42,7 +42,6 @@ function createProducts() {
 }
 createProducts();
 
-// let imgElp = document.getElementById('vote-tracker');
 let imageOneEl = document.getElementById('imageOne');
 let imageTwoEl = document.getElementById('imageTwo');
 let imageThreeEl = document.getElementById('imageThree');
@@ -50,14 +49,6 @@ let voteTrackerEl = document.getElementById('vote-tracker');
 let buttonEl = document.getElementById('button');
 const canvasEl = document.getElementById('chart');
 let buttonResetEl = document.getElementById('reset-chart');
-
-
-// imgElp[0].src = products[0].source;
-// imgElp[0].id = products[0].name;
-// imgElp[1].src = products[1].source;
-// imgElp[1].id = products[1].name;
-// imgElp[2].src = products[2].source;
-// imgElp[2].id = products[2].name;
 
 function generateRandomImages() {
     let indexes = [];
@@ -204,9 +195,9 @@ function updateChart(event) {
 }
 
 
-// buttonResetEl.addEventListener('click', resetChart);
-// function resetChart(event) {
-//     roundsOfVoting = 25;
-//     chart.destroy();
-//     voteTrackerEl.addEventListener('click', handleProductClick);
-// }
+buttonResetEl.addEventListener('click', resetChart);
+function resetChart(event) {
+    roundsOfVoting = 25;
+    chart.destroy();
+    voteTrackerEl.addEventListener('click', handleProductClick);
+}
