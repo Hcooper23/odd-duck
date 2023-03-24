@@ -1,4 +1,4 @@
-# Lab: Odd Duck Lab 12
+# Lab: Odd Duck 
 
 Read the document in its entirety before beginning your lab. To view this lab assignment in its own tab, click here.
 
@@ -36,7 +36,7 @@ Store the products array into local storage as a formatted JSON string
     - Add a screenshot of your score to your README.md file.
 Stretch Goals
 
-![Lighthouse Accessbility](./Screenshot%202023-03-22%20at%209.41.17%20PM.png)
+![Lighthouse Accessbility](./Screenshot%202023-03-23%20at%2011.51.12%20PM.png)
 
 Try some additional charting types based off of some of the other data you collected and display them in addition to the required bar chart
 # Resources
