@@ -215,7 +215,7 @@ function updateChart(event) {
     drawChart();
 }
 
-The resetChart function is a click event handler function that resets the chart and the number of rounds of voting. It takes an event parameter as input, but it is not used in the function.
+// The resetChart function is a click event handler function that resets the chart and the number of rounds of voting. It takes an event parameter as input, but it is not used in the function.
 
 // When the function is called, it sets roundsOfVoting back to 25, which means there are 25 rounds of voting available. It then calls the destroy() method on the chart object to destroy the current chart. Finally, it adds an event listener to the voteTrackerEl element that calls the handleProductClick function when clicked, allowing the user to start a new round of voting.
 buttonResetEl.addEventListener('click', resetChart);
